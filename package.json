@@ -1,0 +1,40 @@
+{
+  "name": "k8s-ecr-login-updater",
+  "description": "A service to keep ECR pull secrets updated",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "tsc",
+    "fix:lint": "tslint --fix -p tsconfig.json -c tslint.json src/**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtriggiano/k8s-ecr-login-updater.git"
+  },
+  "keywords": [
+    "Kubernetes",
+    "AWS ECR"
+  ],
+  "author": {
+    "name": "Giacomo Triggiano",
+    "email": "giacomotriggiano@gmail.com",
+    "url": "https://github.com/gtriggiano"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gtriggiano/k8s-ecr-login-updater/issues"
+  },
+  "homepage": "https://github.com/gtriggiano/k8s-ecr-login-updater#readme",
+  "dependencies": {
+    "@kubernetes/client-node": "^0.8.2",
+    "aws-sdk": "^2.460.0",
+    "envalid": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.2",
+    "prettier": "^1.17.1",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.4.5"
+  }
+}
