@@ -1,0 +1,39 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: ecr-secrets-updater
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    spec:
+      serviceAccountName: ecr-secrets-updater
+      containers:
+        - name: updater
+          image: gtriggiano/k8s-ecrupdater
+          resources:
+            limits:
+              cpu: 500m
+              memory: 50Mi
+          env:
+            - name: K8S_PULL_SECRET_NAME
+              value: ecr
+            # - name: SECRET_UPDATE_INTERVAL
+            #   value: "10"
+            # - name: NAMESPACES
+            #   value: default
+            - name: AWS_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: ecr-secrets-updater
+                  key: AWS_REGION
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: ecr-secrets-updater
+                  key: AWS_ACCESS_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ecr-secrets-updater
+                  key: AWS_SECRET_ACCESS_KEY
