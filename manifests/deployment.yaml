@@ -3,9 +3,17 @@ apiVersion: extensions/v1beta1
 metadata:
   name: ecr-secrets-updater
   namespace: default
+  labels:
+    app: ecr-secrets-updater
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ecr-secrets-updater
   template:
+    metadata:
+      labels:
+        app: ecr-secrets-updater
     spec:
       serviceAccountName: ecr-secrets-updater
       containers:
