@@ -18,7 +18,7 @@ spec:
       serviceAccountName: ecr-secrets-updater
       containers:
         - name: updater
-          image: gtriggiano/k8s-ecrupdater
+          image: gtriggiano/k8s-ecr-secrets-updater:v1.0.0
           resources:
             limits:
               cpu: 500m
