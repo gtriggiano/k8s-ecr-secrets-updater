@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
   name: ecr-secrets-updater
-  namespace: default
+  namespace: ecr-secrets-updater
   labels:
     app: ecr-secrets-updater
 spec:
@@ -24,8 +24,9 @@ spec:
               cpu: 500m
               memory: 50Mi
           env:
-            - name: K8S_PULL_SECRET_NAME
-              value: ecr
+            # The name of the secret that should be created/refreshed
+            # - name: K8S_PULL_SECRET_NAME
+            #   value: ecr
 
             # The value is expressed in seconds
             # - name: SECRET_UPDATE_INTERVAL
