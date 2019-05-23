@@ -16,5 +16,5 @@ const seconds = makeValidator<number>(s => {
 export const config = cleanEnv(process.env, {
   K8S_PULL_SECRET_NAME: str(),
   NAMESPACES: namespaces({ default: [] }),
-  SECRET_UPDATE_INTERVAL: seconds({ default: 10 }),
+  SECRET_UPDATE_INTERVAL: seconds({ default: 3600 }),
 })

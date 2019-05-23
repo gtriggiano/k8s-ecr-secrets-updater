@@ -18,7 +18,7 @@ spec:
       serviceAccountName: ecr-secrets-updater
       containers:
         - name: updater
-          image: gtriggiano/k8s-ecr-secrets-updater:v1.0.0
+          image: gtriggiano/k8s-ecr-secrets-updater:v1.0.1
           resources:
             limits:
               cpu: 500m
@@ -26,10 +26,16 @@ spec:
           env:
             - name: K8S_PULL_SECRET_NAME
               value: ecr
+
+            # The value is expressed in seconds
             # - name: SECRET_UPDATE_INTERVAL
-            #   value: "10"
+            #   value: "3600"
+
+            # The namespaces, separated by a comma, into which create/refresh the secret
+            # If you omit this variable all namespaces will be targeted
             # - name: NAMESPACES
             #   value: default
+
             - name: AWS_REGION
               valueFrom:
                 secretKeyRef:
