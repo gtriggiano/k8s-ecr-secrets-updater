@@ -26,7 +26,7 @@
   "homepage": "https://github.com/gtriggiano/k8s-ecr-login-updater#readme",
   "dependencies": {
     "@kubernetes/client-node": "^0.8.2",
-    "aws-sdk": "^2.460.0",
+    "aws-sdk": "^2.814.0",
     "envalid": "^5.0.0"
   },
   "devDependencies": {
